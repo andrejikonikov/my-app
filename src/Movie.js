@@ -1,28 +1,39 @@
 import React, { Component } from 'react';
+import { AxiosProvider, Request, Get } from 'react-axios'
+
 
 class Movie extends Component {
-
     constructor(props) {
         super(props);
-        console.log(this.getMoviesFromApiAsync());
-    }
-
-    getMoviesFromApiAsync() {
-        // return fetch('https://facebook.github.io/react-native/movies.json')
-        return fetch('https://api.themoviedb.org/3/search/movie?api_key=36bf560f8967672b5e428038340f0065&language=en-US&query=%27titanic%27&page=1')
-        .then((response) => response.json())
-        .then((responseJson) => {
-            console.log("...", responseJson);
-            return responseJson.movies;
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+        this.url = 'https://api.themoviedb.org/3/search/movie?api_key=8ff4bd40bd0796ca1c5ecd0e9ad326cf&query=' + this.props.title + '&page=1';
     }
 
     render () {
         return (
-            <p>{this.props.title}</p>
+            <div>
+                <Get url={this.url} >
+                    {(error, response, isLoading) => {
+                        if(error) {
+                            return (<div>Cannot load movie information: {error.message}</div>)
+                        }
+                        else if(isLoading) {
+                            return (<div>Loading...</div>)
+                        }
+                        else if(response !== null) {
+                            console.log(response.data.results[0]);
+                            return (
+                                <div>
+                                    <p>{response.data.results[0].title}</p>
+                                    <p>{response.data.results[0].overview}</p>
+                                    <p>{response.data.results[0].poster_path}</p>
+                                    <img src={ "https://image.tmdb.org/t/p/w500/" + response.data.results[0].poster_path} />
+                                </div>
+                            )
+                        }
+                        return (<div>Loading...</div>)
+                    }}
+                </Get>
+            </div>
         );
     }
 }
