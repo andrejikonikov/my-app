@@ -1,7 +1,45 @@
+* {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; }
+
+.centered, .App {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute; }
+
+header, footer {
+  padding: 1em;
+  color: white;
+  background-color: black;
+  clear: left;
+  text-align: center; }
+  header .logo, footer .logo {
+    width: 10%;
+    height: 60%; }
+
 .App {
-  text-align: center;
-  padding: 5%;
-}
-.slick-next:before, .slick-prev:before{
-    color: black;
-}
+  position: relative;
+  max-width: 782px;
+  background-color: grey;
+  padding: 18px; }
+  .App .sliderTitle {
+    font-size: 34px;
+    text-align: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid white; }
+    .App .sliderTitle .fa-imdb::before {
+      width: 30px; }
+  .App .card {
+    margin: 18px; }
+    .App .card img {
+      float: left; }
+    .App .card .movieTitle {
+      font-size: 18px;
+      font-weight: bold;
+      padding-left: 155px;
+      padding-top: 5px; }
+    .App .card .movieOverview {
+      padding-left: 155px;
+      padding-top: 5px; }

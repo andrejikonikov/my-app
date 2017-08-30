@@ -10,32 +10,34 @@ class Movie extends Component {
     render () {
 
         return (
-            <div>
-                <Get url={this.url} >
-                    {(error, response, isLoading) => {
-                        if(error) {
-                            return (<div>Cannot load movie information: {error.message}</div>)
-                        }
-                        else if(isLoading) {
-                            return (<div>Loading...</div>)
-                        }
-                        else if(response !== null) {
-                            console.log(response.data.results[0]);
-                            return (
-                                <div className="card">
-                                    <p>{response.data.results[0].title}</p>
-                                    <p>{response.data.results[0].overview}</p>
-                                    <p>{response.data.results[0].poster_path}</p>
-                                    <img src={ "https://image.tmdb.org/t/p/w500/" + response.data.results[0].poster_path} />
-                                </div>
-                            )
-                        }
+
+            <Get url={this.url} >
+                {(error, response, isLoading) => {
+                    if(error) {
+                        return (<div>Cannot load movie information: {error.message}</div>)
+                    }
+                    else if(isLoading) {
                         return (<div>Loading...</div>)
-                    }}
-                </Get>
-            </div>
+                    }
+                    else if(response !== null) {
+                        console.log(response.data.results[0]);
+                        return (
+                            <div className="card">
+                                <img src={ "https://image.tmdb.org/t/p/w500/" + response.data.results[0].poster_path} alt={response.data.results[0].title} width="144" height="92" />
+                                <div className="movieTitle">{response.data.results[0].title}</div>
+                                <div className="movieOverview">{response.data.results[0].overview}</div>
+                            </div>
+                        )
+                    }
+                    return (<div>Loading...</div>)
+                }}
+            </Get>
+
         );
     }
 }
+
+
+
 
 export default Movie;
