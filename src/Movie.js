@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { AxiosProvider, Request, Get } from 'react-axios'
 
-
 class Movie extends Component {
     constructor(props) {
         super(props);
@@ -9,6 +8,7 @@ class Movie extends Component {
     }
 
     render () {
+
         return (
             <div>
                 <Get url={this.url} >
@@ -22,7 +22,7 @@ class Movie extends Component {
                         else if(response !== null) {
                             console.log(response.data.results[0]);
                             return (
-                                <div>
+                                <div className="card">
                                     <p>{response.data.results[0].title}</p>
                                     <p>{response.data.results[0].overview}</p>
                                     <p>{response.data.results[0].poster_path}</p>

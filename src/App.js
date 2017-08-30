@@ -1,22 +1,28 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import LazyLoad from 'react-lazy-load';
 import Movie from './Movie.js';
+import Slider from 'react-slick';
 
 class App extends Component {
     render() {
+        var settings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            accessibility: true,
+            arrows: true,
+            lazyLoad: true
+        };
         return (
             <div className="App">
-                <LazyLoad height={762} offsetVertical={300}>
-                    <Movie title="titanic" />
-                </LazyLoad>
-                <LazyLoad height={762} offsetVertical={300}>
-                    <Movie title="predator" />
-                </LazyLoad>
-                <LazyLoad height={762} offsetVertical={300}>
-                    <Movie title="alien" />
-                </LazyLoad>
+                <Slider {...settings}>
+                    <div><Movie title="titanic" /></div>
+                    <div><Movie title="predator" /></div>
+                    <div><Movie title="alien" /></div>
+                </Slider>
             </div>
         );
     }

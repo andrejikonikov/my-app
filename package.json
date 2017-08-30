@@ -10,7 +10,8 @@
     "react-axios": "^1.0.3",
     "react-dom": "^15.6.1",
     "react-lazy-load": "^3.0.12",
-    "react-scripts": "1.0.12"
+    "react-scripts": "1.0.12",
+    "react-slick": "^0.15.0"
   },
   "scripts": {
     "predeploy": "npm run build",
