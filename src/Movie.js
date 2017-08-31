@@ -10,13 +10,17 @@ class Movie extends Component {
 
     decodeGenre (codes) {
         var genresList = "";
+        var limit = 0;
         genres.genres.map(function(g) {
+
             codes.map(function(gIds) {
-                if (g.id === gIds) {
+                if ((g.id === gIds) &&(limit < 2)) {
                     if (genresList.length) {
                         genresList += (", " + g.name);
+                        limit += 1;
                     } else {
                         genresList += g.name;
+                        limit += 1;
                     }
                 }
             });
@@ -35,7 +39,6 @@ class Movie extends Component {
                         return (<div>Loading...</div>)
                     }
                     else if(response !== null) {
-                        console.log(response.data.results[0]);
                         return (
                             <div className="container">
                                 <div className="row">

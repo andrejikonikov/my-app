@@ -8,7 +8,7 @@ import movies_icon from './images/movies_icon.png';
 
 class App extends Component {
 
-    movies = ["a bugs life", "fight club", "forest gump", "snatch", "the godfather", "fast and furious", "titanic", "predator", "alien", "pulp fiction",  "reservoir dogs"];
+    movies = ["a bugs life", "fight club", "forest gump", "snatch", "the godfather", "The Revenant", "titanic", "predator", "alien", "pulp fiction",  "reservoir dogs"];
     sliderItems = this.movies.map((movie, i) => <div key={i}><Movie title= {movie}/></div>);
 
     constructor(props) {

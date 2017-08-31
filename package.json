@@ -13,8 +13,7 @@
     "react-dom": "^15.6.1",
     "react-lazy-load": "^3.0.12",
     "react-scripts": "1.0.12",
-    "react-slick": "^0.15.0",
-    "FortAwesome/Font-Awesome": "*"
+    "react-slick": "^0.15.0"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
