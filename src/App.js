@@ -6,7 +6,9 @@ import Slider from 'react-slick';
 
 class App extends Component {
 
-    movies = ["a bugs life", "all quiet on the western front", "forest gump", "snatch", "the godfather", "fight club", "fast and furious", "titanic", "predator", "alien", "pulp fiction",  "reservoir dogs"];
+
+    movies = ["a bugs life" , "all quiet on the western front", "forest gump", "snatch", "the godfather", "fight club", "fast and furious", "titanic", "predator", "alien", "pulp fiction",  "reservoir dogs"
+];
     sliderItems = this.movies.map((movie, i) => <div key={i}><Movie title= {movie}/></div>);
 
     render() {
