@@ -8,11 +8,10 @@ class Movie extends Component {
         this.url = 'https://api.themoviedb.org/3/search/movie?api_key=8ff4bd40bd0796ca1c5ecd0e9ad326cf&query=' + this.props.title + '&page=1';
     }
 
-    tempF (a) {
+    decodeGenre (codes) {
         var genresList = "";
-        // console.log("tempF", a);
         genres.genres.map(function(g) {
-            a.map(function(gIds) {
+            codes.map(function(gIds) {
                 if (g.id === gIds) {
                     if (genresList.length) {
                         genresList += (", " + g.name);
@@ -22,14 +21,11 @@ class Movie extends Component {
                 }
             });
         });
-        // console.log(genresList);
         return (genresList);
     }
 
     render () {
-
         return (
-
             <Get url={this.url} >
                 {(error, response, isLoading) => {
                     if(error) {
@@ -49,7 +45,7 @@ class Movie extends Component {
                                     <div className="col-7">
                                         <div className="movieTitle">{response.data.results[0].title}</div>
                                         <div className="genre">
-                                            <p>{this.tempF(response.data.results[0].genre_ids)}</p>
+                                            <p>{this.decodeGenre(response.data.results[0].genre_ids)}</p>
                                         </div>
                                         <a className="btn btn-primary" href="#" role="button"><i className="fa fa-arrow-right" aria-hidden="true"></i> more</a>
                                     </div>
@@ -69,23 +65,8 @@ class Movie extends Component {
                     return (<div>Loading...</div>)
                 }}
             </Get>
-
         );
     }
 }
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            1 of 2
-        </div>
-        <div class="col">
-            2 of 2
-        </div>
-    </div>
-</div>
-
-
-
 
 export default Movie;

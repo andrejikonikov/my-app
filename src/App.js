@@ -8,23 +8,16 @@ import movies_icon from './images/movies_icon.png';
 
 class App extends Component {
 
-    movies = ["a bugs life", "fight club", "forest gump", "snatch", "the godfather", "fast and furious", "titanic", "predator", "alien", "pulp fiction",  "reservoir dogs"
-];
+    movies = ["a bugs life", "fight club", "forest gump", "snatch", "the godfather", "fast and furious", "titanic", "predator", "alien", "pulp fiction",  "reservoir dogs"];
     sliderItems = this.movies.map((movie, i) => <div key={i}><Movie title= {movie}/></div>);
 
     constructor(props) {
-    super(props)
-    this.changeHandler = this.changeHandler.bind(this)
-    console.log(this.movies.length);
-  }
-  changeHandler(e) {
-    this.refs.slider.slickGoTo(e.target.value)
-  }
-
-
-
-
-
+        super(props)
+        this.changeHandler = this.changeHandler.bind(this)
+    }
+    changeHandler(e) {
+        this.refs.slider.slickGoTo(e.target.value)
+    }
 
     render() {
         var settings = {
@@ -52,7 +45,7 @@ class App extends Component {
         return (
             <div>
                 <header>
-                    <h1>Recommends movies app by Andrej</h1>
+                    <h1>Recommended movies app by Andrej</h1>
                 </header>
                 <div className="App">
                     <div className="sliderTitle"><img src={imdb_icon} /> Recommends <img src={movies_icon} width="50" /> MOVIES</div>
