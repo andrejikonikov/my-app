@@ -48,7 +48,9 @@ class Movie extends Component {
                                     </div>
                                     <div className="col-7">
                                         <div className="movieTitle">{response.data.results[0].title}</div>
-                                        <div className="genre">{this.tempF(response.data.results[0].genre_ids)}</div>
+                                        <div className="genre">
+                                            <p>{this.tempF(response.data.results[0].genre_ids)}</p>
+                                        </div>
                                         <a className="btn btn-primary" href="#" role="button"><i className="fa fa-arrow-right" aria-hidden="true"></i> more</a>
                                     </div>
                                 </div>
@@ -58,7 +60,7 @@ class Movie extends Component {
                                         <div className="movieRate"><i className="fa fa-star" aria-hidden="true"></i>{response.data.results[0].vote_average}</div>
                                     </div>
                                     <div className="col-9">
-                                        <div className="movieOverview">{(response.data.results[0].overview).substring(0, (response.data.results[0].overview).indexOf(".")+1 )}</div>
+                                        <div className="movieOverview">{(response.data.results[0].overview).substring(0, (response.data.results[0].overview).indexOf(".") )}</div>
                                         </div>
                                 </div>
                             </div>
